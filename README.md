@@ -2,7 +2,10 @@
 
 ## Useful commands
 
-`swiftc -o a DayX.swift && ./a`
+Compile & run (if successful)
+```shell
+swiftc -o a main.swift && ./a
+```
 
 
 ## Template code
