@@ -85,16 +85,6 @@ partOne()
 
 // MARK: - Part Two
 
-extension Array where Element: Comparable {
-    func isAscending() -> Bool {
-        return zip(self, self.dropFirst()).allSatisfy(<=)
-    }
-
-    func isDescending() -> Bool {
-        return zip(self, self.dropFirst()).allSatisfy(>=)
-    }
-}
-
 func partTwo() {
     // This is very inefficient but I'm a patient person :))
     let reports = getReports()
@@ -116,7 +106,6 @@ func partTwo() {
         }
     }
 
-    print("====")
     print(safeReports)
 }
 
