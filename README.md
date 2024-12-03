@@ -10,7 +10,7 @@ swiftc -o a main.swift && ./a
 
 ## Template code
 
-To open and read a file
+To open and read a file's contents:
 
 ```swift
 func read(file: String) -> [String]? {
@@ -28,12 +28,37 @@ func read(file: String) -> [String]? {
     return lines
 }
 
-let path = "./Input.txt"
+enum InputType: String {
+    case full = "./Input.txt"
+    case sample = "./SampleInput.txt"
+}
 
-guard let input = read(file: path) else {
+let file: InputType = full
+
+guard let inputs = read(file: file.rawValue) else {
     print("Failed to open")
     exit(1)
 }
 
 ```
 
+## Neovim CoC
+
+CoC settings to enable Swift and Objective-C (clang) LSPs
+
+```json
+{
+    "languageserver": {
+        "clangd": {
+            "command": "clangd",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+        },
+		"swift": {
+			"command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+			"rootPatterns": ["Package.swift"],
+			"filetypes": ["swift"]
+		}
+    }
+}
+```
