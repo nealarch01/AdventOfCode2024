@@ -2,7 +2,8 @@
 
 ## Useful commands
 
-Compile & run (if successful)
+Compile & run (if successful):
+
 ```shell
 swiftc -o a main.swift && ./a
 ```
@@ -10,13 +11,13 @@ swiftc -o a main.swift && ./a
 
 ## Template code
 
-To open and read a file's contents:
+Open and read a file's contents:
 
 ```swift
 func read(file: String) -> [String]? {
     guard let fileContents = try? String(contentsOfFile: file, encoding: .utf8) else {
         print("Failed to read file")
-            return nil
+	return nil
     }
 
     var lines = fileContents.components(separatedBy: "\n")
@@ -42,7 +43,7 @@ guard let inputs = read(file: file.rawValue) else {
 
 ```
 
-## Neovim CoC
+## Other
 
 CoC settings to enable Swift and Objective-C (clang) LSPs
 
