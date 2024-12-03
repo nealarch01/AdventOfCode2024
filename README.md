@@ -33,7 +33,7 @@ enum InputType: String {
     case sample = "./SampleInput.txt"
 }
 
-let file: InputType = full
+let file: InputType = .full
 
 guard let inputs = read(file: file.rawValue) else {
     print("Failed to open")
