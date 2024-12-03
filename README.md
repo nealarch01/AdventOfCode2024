@@ -54,11 +54,11 @@ CoC settings to enable Swift and Objective-C (clang) LSPs
             "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
             "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
         },
-		"swift": {
-			"command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
-			"rootPatterns": ["Package.swift"],
-			"filetypes": ["swift"]
-		}
+	"swift": {
+		"command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+		"rootPatterns": ["Package.swift"],
+		"filetypes": ["swift"]
+	}
     }
 }
 ```
