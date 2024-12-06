@@ -93,6 +93,7 @@ func partOne() {
 
     for i in 0..<rows {
         for j in 0..<columns {
+            guard inputs[i][j] == "X" else { continue }
             for direction in Direction.allCases { // This is objectively terrible, but it's late. Refactor (maybe) this :D.
                 total += search("", x: i, y: j, direction: direction)
             }

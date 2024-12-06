@@ -27,7 +27,11 @@ guard let inputs = read(file: file.rawValue) else {
     exit(1)
 }
 
+var savedRules: [Int:[Int]]?
+
 func getRules() -> [Int:[Int]] {
+    if savedRules != nil { return savedRules! }
+
     let rulesPattern = "[0-9]+\\|[0-9]+"
     let rulesRegex = try! NSRegularExpression(pattern: rulesPattern)
 
@@ -52,6 +56,9 @@ func getRules() -> [Int:[Int]] {
             rulesDictionary[key] = [value]
         }
     }
+
+    savedRules = rulesDictionary
+
     return rulesDictionary
 }
 
@@ -135,7 +142,7 @@ func partTwo() {
         // Create a mutable variable.
         var update = update
 
-        // I'm going to get my money's worth on my M2 Pro chip, TODO: Optimize (optional)...
+        // I'm going to get my money's worth on my M2 Pro chip. TODO: Optimize (optional)...
         while !isUpdateValid(&update) {
             for index in 0..<update.count - 1 {
                 if let followingNumbers = rules[update[index]], followingNumbers.contains(update[index + 1]) {
